@@ -15,7 +15,7 @@ const HomePage = () => {
 
     fetch("http://localhost:3030/posts", requestOptions)
       .then((response) => response.json())
-      .then((result) => setPosts(result[0]))
+      .then((result) => setPosts(result))
       .catch((error) => console.log("error", error));
   };
 
