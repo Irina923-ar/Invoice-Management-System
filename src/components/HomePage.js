@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Post from "./Post";
-import BackdropDelete from "./BackdropDelete";
 import Empty from "./Empty";
+import NewInvoiceForm from "./NewInvoiceForm";
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
+  const [showNewInvoiceForm, setShowNewInvoiceForm] = useState(false);
 
   const getData = () => {
     var requestOptions = {
@@ -23,10 +24,23 @@ const HomePage = () => {
     getData();
   }, []);
 
+  const updatePosts = () => {
+    getData();
+  };
+
+  const toggleNewInvoiceForm = () => {
+    setShowNewInvoiceForm(!showNewInvoiceForm);
+  };
+
   return (
     <div>
-      <BackdropDelete></BackdropDelete>
-      <Navbar></Navbar>
+      <Navbar toggleNewInvoice={toggleNewInvoiceForm}></Navbar>
+      {showNewInvoiceForm && (
+        <NewInvoiceForm
+          updatePosts={updatePosts}
+          toggleNewInvoice={toggleNewInvoiceForm}
+        />
+      )}
       <Empty></Empty>
       <div className="jobs-grid">
         {posts.map((post) => (

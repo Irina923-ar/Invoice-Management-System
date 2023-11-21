@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ toggleNewInvoice }) => {
   return (
     <div className="navbar">
       <div>
@@ -17,7 +17,7 @@ const Navbar = () => {
         </button>
       </div>
       <div className="add-invoice">
-        <button className="btn-add">
+        <button className="btn-add" onClick={() => toggleNewInvoice()}>
           <img src="assets/icon-plus.svg"></img>
         </button>
         <div className="add-title">New Invoice</div>
