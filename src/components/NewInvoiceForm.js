@@ -2,24 +2,35 @@ import React, { useState } from "react";
 
 function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
   const [formData, setFormData] = useState({
+    id: "",
+    createdAt: "",
+    paymentDue: "",
+    description: "",
+    paymentTerms: "",
+    clientName: "",
+    clientEmail: "",
+    status: "",
     senderAddress: {
       street: "",
       city: "",
       postCode: "",
       country: "",
     },
-    clientName: "",
-    clientEmail: "",
     clientAddress: {
       street: "",
       city: "",
       postCode: "",
       country: "",
     },
-    paymentDue: "",
-    paymentTerms: "",
-    description: "",
-    items: [],
+    items: [
+      {
+        name: "",
+        quantity: "",
+        price: "",
+        total: "",
+      },
+    ],
+    total: "",
   });
 
   const handleItemChange = (index, field, value) => {
@@ -30,19 +41,40 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
       const quantity = parseFloat(updatedItems[index]["quantity"]) || 0;
       const price = parseFloat(updatedItems[index]["price"]) || 0;
       updatedItems[index]["total"] = (quantity * price).toFixed(2);
-    }
 
-    setFormData({ ...formData, items: updatedItems });
+      const calculatedTotal = updatedItems.reduce(
+        (acc, item) => acc + parseFloat(item.total),
+        0
+      );
+
+      setFormData({
+        ...formData,
+        items: updatedItems,
+        total: calculatedTotal.toFixed(2),
+      });
+    } else {
+      setFormData({ ...formData, items: updatedItems });
+
+      const calculatedTotal = updatedItems.reduce(
+        (acc, item) => acc + parseFloat(item.total),
+        0
+      );
+
+      setFormData({
+        ...formData,
+        total: calculatedTotal.toFixed(2),
+      });
+    }
   };
 
   const handleSaveAsDraft = async () => {
     try {
-      const response = await fetch("your-draft-api-endpoint", {
+      const response = await fetch("http://localhost:3030/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, isDraft: true }),
+        body: JSON.stringify({ ...formData, status: "draft" }),
       });
 
       if (response.ok) {
@@ -62,7 +94,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, status: "pending" }),
       });
 
       if (response.ok) {
@@ -86,7 +118,38 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
     });
   };
 
-  const handleDiscord = async () => {};
+  const handleDeleteItem = (index) => {
+    const updatedItems = [...formData.items];
+    updatedItems.splice(index, 1);
+    setFormData({ ...formData, items: updatedItems });
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+  };
+
+  const handleClientAddressChange = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      clientAddress: {
+        ...prevData.clientAddress,
+        [field]: value,
+      },
+    }));
+  };
+
+  const handleSenderAddressChange = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      senderAddress: {
+        ...prevData.senderAddress,
+        [field]: value,
+      },
+    }));
+  };
 
   return (
     <div className="edit-form">
@@ -96,57 +159,104 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
             <div className="id-post">New Invoice</div>
             <div className="title-form">Bill Form</div>
             <label className="subtitle">Street Address</label>
-            <input className="content" value={formData.senderAddress.street} />
+            <input
+              className="content"
+              value={formData.senderAddress.street}
+              onChange={(e) =>
+                handleSenderAddressChange("street", e.target.value)
+              }
+            />
             <div className="container-form">
               <div className="container-form-div">
                 <label className="subtitle">City</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.senderAddress.city}
+                  onChange={(e) =>
+                    handleSenderAddressChange("city", e.target.value)
+                  }
                 />
               </div>
               <div className="container-form-div">
                 <label className="subtitle">Post Code</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.senderAddress.postCode}
+                  onChange={(e) =>
+                    handleSenderAddressChange("postCode", e.target.value)
+                  }
                 />
               </div>
               <div>
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.senderAddress.country}
+                  onChange={(e) =>
+                    handleSenderAddressChange("country", e.target.value)
+                  }
                 />
               </div>
             </div>
             <div className="title-form">Bill To</div>
             <label className="subtitle">Client's Name</label>
-            <input className="content" value={formData.clientName} />
+            <input
+              className="content"
+              type="text"
+              value={formData.clientName}
+              onChange={(e) => handleInputChange("clientName", e.target.value)}
+            />
             <label className="subtitle mt">Client's Email</label>
-            <input className="content" value={formData.clientEmail} />
+            <input
+              className="content"
+              type="text"
+              value={formData.clientEmail}
+              onChange={(e) => handleInputChange("clientEmail", e.target.value)}
+            />
             <label className="subtitle mt">Street Address</label>
-            <input className="content" value={formData.clientAddress.street} />
+            <input
+              className="content"
+              type="text"
+              value={formData.clientAddress.street}
+              onChange={(e) =>
+                handleClientAddressChange("street", e.target.value)
+              }
+            />
             <div className="container-form">
               <div className="container-form-div">
                 <label className="subtitle">City</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.clientAddress.city}
+                  onChange={(e) =>
+                    handleClientAddressChange("city", e.target.value)
+                  }
                 />
               </div>
               <div className="container-form-div">
                 <label className="subtitle">Post Code</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.clientAddress.postCode}
+                  onChange={(e) =>
+                    handleClientAddressChange("postCode", e.target.value)
+                  }
                 />
               </div>
               <div>
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
+                  type="text"
                   value={formData.clientAddress.country}
+                  onChange={(e) =>
+                    handleClientAddressChange("country", e.target.value)
+                  }
                 />
               </div>
             </div>
@@ -156,6 +266,9 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 <input
                   className="content input-date"
                   value={formData.paymentDue}
+                  onChange={(e) =>
+                    handleInputChange("paymentDue", e.target.value)
+                  }
                 />
                 <svg
                   className="input-date-svg"
@@ -171,11 +284,15 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   />
                 </svg>
               </div>
-              <div>
+              <div className="container-form-div-2">
                 <label className="subtitle">Payment Terms</label>
                 <input
                   className="content input-date"
-                  value={`Net ${formData.paymentTerms} Days`}
+                  type="number"
+                  value={`${formData.paymentTerms}`}
+                  onChange={(e) =>
+                    handleInputChange("paymentTerms", e.target.value)
+                  }
                 ></input>
                 <svg
                   className="input-days-svg"
@@ -194,7 +311,12 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               </div>
             </div>
             <label className="subtitle mt">Project Description</label>
-            <input className="content" value={formData.description} />
+            <input
+              className="content"
+              type="text"
+              value={formData.description}
+              onChange={(e) => handleInputChange("description", e.target.value)}
+            />
             <div className="item-list">Item List</div>
             <div className="container-item-change">
               <div className="item-change">
@@ -208,13 +330,15 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   <div className="item-change" key={index}>
                     <input
                       className="content"
+                      type="text"
                       value={item.name}
                       onChange={(e) =>
                         handleItemChange(index, "name", e.target.value)
                       }
                     />
                     <input
-                      className="content"
+                      className="content item-number"
+                      type="number"
                       value={item.quantity}
                       onChange={(e) =>
                         handleItemChange(index, "quantity", e.target.value)
@@ -222,6 +346,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                     />
                     <input
                       className="content"
+                      type="number"
                       value={item.price}
                       onChange={(e) =>
                         handleItemChange(index, "price", e.target.value)
@@ -230,7 +355,10 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                     <div className="item" value={item.price}>
                       {item.total}
                     </div>
-                    <button className="btn-trash">
+                    <button
+                      className="btn-trash"
+                      onClick={() => handleDeleteItem(index)}
+                    >
                       <svg
                         width="13"
                         height="16"
@@ -247,7 +375,6 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 ))}
               </div>
             </div>
-
             <button
               className="btn-cancel-edit btn-add-item"
               onClick={handleAddNewItem}
@@ -269,10 +396,22 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               >
                 Discard
               </button>
-              <button className="save-draft-btn" onClick={handleSaveAsDraft}>
+              <button
+                className="save-draft-btn"
+                onClick={() => {
+                  toggleNewInvoice(false);
+                  handleSaveAsDraft();
+                }}
+              >
                 Save as Draft
               </button>
-              <button className="mark-as-paid" onClick={handleSaveAndSend}>
+              <button
+                className="mark-as-paid"
+                onClick={() => {
+                  toggleNewInvoice(false);
+                  handleSaveAndSend();
+                }}
+              >
                 Save & Send
               </button>
             </div>

@@ -1,6 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
 function EditForm({ post, toggleEditInvoice }) {
+  const [formData, setFormData] = useState({
+    senderAddress: {
+      street: "",
+      city: "",
+      postCode: "",
+      country: "",
+    },
+    clientName: "",
+    clientEmail: "",
+    clientAddress: {
+      street: "",
+      city: "",
+      postCode: "",
+      country: "",
+    },
+    paymentDue: "",
+    paymentTerms: "",
+    description: "",
+    items: [],
+  });
+
+  const handleAddNewItem = () => {
+    setFormData({
+      ...formData,
+      items: [
+        ...formData.items,
+        { name: "", quantity: "", price: "", total: "0.00" },
+      ],
+    });
+  };
+
+  const handleItemChange = (index, field, value) => {
+    const updatedItems = [...formData.items];
+    updatedItems[index][field] = value;
+
+    if (field === "quantity" || field === "price") {
+      const quantity = parseFloat(updatedItems[index]["quantity"]) || 0;
+      const price = parseFloat(updatedItems[index]["price"]) || 0;
+      updatedItems[index]["total"] = (quantity * price).toFixed(2);
+    }
+
+    setFormData({ ...formData, items: updatedItems });
+  };
+
+  const handleDeleteItem = (index) => {
+    const updatedItems = [...formData.items];
+    updatedItems.splice(index, 1);
+    setFormData({ ...formData, items: updatedItems });
+  };
+
   return (
     <div className="edit-form">
       {post ? (
@@ -72,7 +122,7 @@ function EditForm({ post, toggleEditInvoice }) {
                   />
                 </svg>
               </div>
-              <div>
+              <div className="container-form-div-2">
                 <label className="subtitle">Payment Terms</label>
                 <input
                   className="content input-date"
@@ -104,7 +154,6 @@ function EditForm({ post, toggleEditInvoice }) {
                 <div className="subtitle">Price</div>
                 <div className="subtitle">Total</div>
               </div>
-              {/* map */}
               <div>
                 {post.items.map((item, index) => (
                   <div className="item-change" key={index}>
@@ -112,7 +161,56 @@ function EditForm({ post, toggleEditInvoice }) {
                     <input className="content" value={item.quantity} />
                     <input className="content" value={item.price} />
                     <div className="item">{item.total}</div>
-                    <button className="btn-trash">
+                    <button
+                      className="btn-trash"
+                      onClick={() => handleDeleteItem(index)}
+                    >
+                      <svg
+                        width="13"
+                        height="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z"
+                          fill="#888EB0"
+                          fill-rule="nonzero"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div>
+                {formData.items.map((item, index) => (
+                  <div className="item-change" key={index}>
+                    <input
+                      className="content"
+                      value={item.name}
+                      onChange={(e) =>
+                        handleItemChange(index, "name", e.target.value)
+                      }
+                    />
+                    <input
+                      className="content"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        handleItemChange(index, "quantity", e.target.value)
+                      }
+                    />
+                    <input
+                      className="content"
+                      value={item.price}
+                      onChange={(e) =>
+                        handleItemChange(index, "price", e.target.value)
+                      }
+                    />
+                    <div className="item" value={item.price}>
+                      {item.total}
+                    </div>
+                    <button
+                      className="btn-trash"
+                      onClick={() => handleDeleteItem(index)}
+                    >
                       <svg
                         width="13"
                         height="16"
@@ -129,7 +227,10 @@ function EditForm({ post, toggleEditInvoice }) {
                 ))}
               </div>
             </div>
-            <button className="btn-cancel-edit btn-add-item">
+            <button
+              className="btn-cancel-edit btn-add-item"
+              onClick={handleAddNewItem}
+            >
               <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z"

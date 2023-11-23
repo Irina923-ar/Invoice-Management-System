@@ -7,12 +7,16 @@
   --clr-secondary-100: #dfe3fa;
   --clr-secondary-200: #888eb0;
   --clr-secondary-300: #7e88c3;
+  --clr-secondary-350: #373b53;
   --clr-secondary-400: #0c0e16;
+  --clr-secondary-450: #252945;
   --clr-secondary-500: #ec5757;
   --clr-secondary-600: rgb(255, 151, 151);
   --clr-secondary-700: #f8f8fb;
+  --clr-secondary-750: #373b53;
   --clr-secondary-800: #141625;
   --clr-secondary-900: #858bb2;
+  --clr-secondary-950: #fff;
 
   --clr-primary: #fff;
 
@@ -29,9 +33,36 @@
   --fs-300: 24px;
 }
 
+[data-theme="dark"] {
+  --clr-primary-200: #939bf4;
+  --clr-primary-300: #19202d;
+  --clr-primary-400: #121721;
+
+  --clr-secondary-100: #141625;
+  --clr-secondary-200: #ffffff;
+  --clr-secondary-300: #dfe3fa;
+  --clr-secondary-350: #0c0e16;
+  --clr-secondary-400: #ffffff;
+  --clr-secondary-700: #141625;
+  --clr-secondary-750: #ffffff;
+  --clr-secondary-900: #ffffff;
+  --clr-secondary-950: #1e2139;
+
+  --clr-primary-text: #ffffff;
+}
+
+[data-theme="dark"] .icon-sun {
+  display: flex;
+}
+
+[data-theme="dark"] .icon-moon {
+  display: flex;
+}
+
 * {
   padding: 0;
   margin: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 body {
@@ -192,7 +223,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-950);
   font-size: var(--fs-200);
   padding: 30px 0px 27px 32px;
   border-radius: 8px;
@@ -256,7 +287,7 @@ body {
 }
 
 .status-draft {
-  color: #373b53;
+  color: var(--clr-secondary-750);
   background-color: rgba(55, 59, 83, 0.0571);
 }
 
@@ -269,7 +300,7 @@ body {
 }
 
 .status-circle-draft {
-  background-color: #373b53;
+  background-color: var(--clr-secondary-750);
 }
 
 .status-circle {
@@ -289,13 +320,13 @@ body {
 
 .btn-arrow-right {
   border: none;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-950);
 }
 
 /* Backdrop */
 
 .backdrop {
-  display: none;
+  display: flex;
   visibility: visible;
   position: fixed;
   top: 0;
@@ -346,7 +377,7 @@ body {
 }
 
 .btn-cancel-edit {
-  background-color: #f8f8fb;
+  background-color: var(--clr-secondary-450);
   color: var(--clr-secondary-300);
   border-radius: 24px;
   padding: 18px 25px 15px 24px;
@@ -406,12 +437,14 @@ body {
   font-weight: var(--fw-bold);
 }
 
+/* Individual Page */
+
 .individual-page-header {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 31px;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-950);
   padding: 20px 32px;
   border-radius: 8px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
@@ -460,14 +493,14 @@ body {
   padding: 50px 48px 48px 48px;
   margin-top: 24px;
   margin-bottom: 54px;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-950);
   border-radius: 8px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
 }
 
 .container-amount {
-  background-color: #f9fafe;
-  border-radius: 8px 8px 0px 0px;
+  background-color: var(--clr-secondary-450);
+  border-radius: 8px 8px 9px 9px;
   margin-top: 44px;
 }
 
@@ -503,7 +536,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #373b53;
+  background-color: var(--clr-secondary-350);
   border-radius: 0px 0px 8px 8px;
   color: var(--clr-primary);
   padding: 27px 32px 21px 32px;
@@ -597,23 +630,19 @@ body {
 }
 
 .container-form input {
-  width: 80%;
+  width: 90%;
 }
 
 .input-date-svg {
   position: absolute;
-  top: 65%;
-  right: 26px;
-  transform: translateY(-50%);
-  pointer-events: none;
+  top: 57%;
+  right: 24px;
 }
 
 .input-days-svg {
   position: absolute;
-  top: 68%;
-  right: 86px;
-  transform: translateY(-50%);
-  pointer-events: none;
+  top: 60%;
+  right: 24px;
 }
 
 .container-form .container-form-div {
@@ -621,8 +650,12 @@ body {
   position: relative;
 }
 
+.container-form-div-2 {
+  position: relative;
+}
+
 .form input {
-  padding: 18px 20px 15px 20px;
+  padding: 18px 0px 15px 20px;
   border-radius: 4px;
   border: 1px solid var(--05, #dfe3fa);
 }
@@ -702,4 +735,10 @@ body {
   margin: 8px;
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

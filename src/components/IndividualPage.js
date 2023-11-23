@@ -8,6 +8,11 @@ const IndividualPage = () => {
   const [post, setPost] = useState();
   const { id } = useParams();
   const [showEditInvoiceForm, setShowEditInvoiceForm] = useState(false);
+  const [showPopupDelete, setShowPopupDelete] = useState(false);
+
+  const showPopup = () => {
+    setShowPopupDelete(!showPopupDelete);
+  };
 
   const toggleEditInvoice = () => {
     setShowEditInvoiceForm(!showEditInvoiceForm);
@@ -82,7 +87,9 @@ const IndividualPage = () => {
               >
                 Edit
               </button>
-              <button className="btn-delete">Delete</button>
+              <button className="btn-delete" onClick={() => showPopup()}>
+                Delete
+              </button>
               <button className="mark-as-paid">Mark as Paid</button>
             </div>
           </div>
@@ -153,7 +160,9 @@ const IndividualPage = () => {
       {showEditInvoiceForm && (
         <EditForm post={post} toggleEditInvoice={toggleEditInvoice}></EditForm>
       )}
-      <BackdropDelete></BackdropDelete>
+      {showPopupDelete && (
+        <BackdropDelete post={post} showPopup={showPopup}></BackdropDelete>
+      )}
     </div>
   );
 };
