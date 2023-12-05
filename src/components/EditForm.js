@@ -1,36 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function EditForm({ post, toggleEditInvoice }) {
   const [formData, setFormData] = useState({
+    id: "",
+    createdAt: "",
+    paymentDue: "",
+    description: "",
+    paymentTerms: "",
+    clientName: "",
+    clientEmail: "",
+    status: "",
     senderAddress: {
       street: "",
       city: "",
       postCode: "",
       country: "",
     },
-    clientName: "",
-    clientEmail: "",
     clientAddress: {
       street: "",
       city: "",
       postCode: "",
       country: "",
     },
-    paymentDue: "",
-    paymentTerms: "",
-    description: "",
-    items: [],
+    items: [
+      {
+        name: "",
+        quantity: "",
+        price: "",
+        total: "",
+      },
+    ],
+    total: "",
   });
 
-  const handleAddNewItem = () => {
-    setFormData({
-      ...formData,
-      items: [
-        ...formData.items,
-        { name: "", quantity: "", price: "", total: "0.00" },
-      ],
-    });
-  };
+  useEffect(() => {
+    if (post) {
+      setFormData({
+        id: post.id || "",
+        createdAt: post.createdAt || "",
+        paymentDue: post.paymentDue || "",
+        description: post.description || "",
+        paymentTerms: post.paymentTerms || "",
+        clientName: post.clientName || "",
+        clientEmail: post.clientEmail || "",
+        status: post.status || "",
+        senderAddress: {
+          street: post.senderAddress ? post.senderAddress.street || "" : "",
+          city: post.senderAddress ? post.senderAddress.city || "" : "",
+          postCode: post.senderAddress ? post.senderAddress.postCode || "" : "",
+          country: post.senderAddress ? post.senderAddress.country || "" : "",
+        },
+        clientAddress: {
+          street: post.clientAddress.street || "",
+          city: post.clientAddress.city || "",
+          postCode: post.clientAddress.postCode || "",
+          country: post.clientAddress.country || "",
+        },
+        items: post.items.map((item) => ({ ...item })),
+        total: post.total || "",
+      });
+    }
+  }, [post]);
 
   const handleItemChange = (index, field, value) => {
     const updatedItems = [...formData.items];
@@ -40,9 +70,40 @@ function EditForm({ post, toggleEditInvoice }) {
       const quantity = parseFloat(updatedItems[index]["quantity"]) || 0;
       const price = parseFloat(updatedItems[index]["price"]) || 0;
       updatedItems[index]["total"] = (quantity * price).toFixed(2);
-    }
 
-    setFormData({ ...formData, items: updatedItems });
+      const calculatedTotal = updatedItems.reduce(
+        (acc, item) => acc + parseFloat(item.total),
+        0
+      );
+
+      setFormData({
+        ...formData,
+        items: updatedItems,
+        total: calculatedTotal.toFixed(2),
+      });
+    } else {
+      setFormData({ ...formData, items: updatedItems });
+
+      const calculatedTotal = updatedItems.reduce(
+        (acc, item) => acc + parseFloat(item.total),
+        0
+      );
+
+      setFormData({
+        ...formData,
+        total: calculatedTotal.toFixed(2),
+      });
+    }
+  };
+
+  const handleAddNewItem = () => {
+    setFormData({
+      ...formData,
+      items: [
+        ...formData.items,
+        { name: "", quantity: "", price: "", total: "" },
+      ],
+    });
   };
 
   const handleDeleteItem = (index) => {

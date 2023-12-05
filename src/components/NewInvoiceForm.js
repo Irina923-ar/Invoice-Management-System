@@ -284,7 +284,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   />
                 </svg>
               </div>
-              <div className="container-form-div-2">
+              <div className="container-form-div">
                 <label className="subtitle">Payment Terms</label>
                 <input
                   className="content input-date"
@@ -391,7 +391,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
 
             <div className="buttons-form">
               <button
-                className="btn-cancel-edit"
+                className="btn-cancel-edit btn-discard"
                 onClick={() => toggleNewInvoice(false)}
               >
                 Discard
