@@ -1,6 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BackdropDelete = ({ post, showPopup }) => {
+const BackdropDelete = ({ post, showPopup, deletePost }) => {
+  const handleDelete = () => {
+    deletePost(post.id);
+    showPopup(false);
+  };
+
   return (
     <div className="backdrop">
       {post ? (
@@ -18,7 +24,11 @@ const BackdropDelete = ({ post, showPopup }) => {
               >
                 Cancel
               </button>
-              <button className="btn-delete">Delete</button>
+              <Link to={`/`}>
+                <button className="btn-delete" onClick={handleDelete}>
+                  Delete
+                </button>
+              </Link>
             </div>
           </div>
         </>

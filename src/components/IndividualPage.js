@@ -18,6 +18,49 @@ const IndividualPage = () => {
     setShowEditInvoiceForm(!showEditInvoiceForm);
   };
 
+  const markAsPaid = () => {
+    const requestOptions = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        status: "paid",
+      }),
+    };
+
+    fetch(`http://localhost:3030/posts/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (Array.isArray(result)) {
+          const newPost = result.find((el) => el.id === id);
+          setPost(newPost);
+        } else {
+          console.error("Invalid response format:", result);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  const deletePost = (postId) => {
+    var requestOptions = {
+      method: "DELETE",
+      redirect: "follow",
+    };
+
+    fetch(`http://localhost:3030/posts/${postId}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (Array.isArray(result)) {
+          const newPost = result.find((el) => el.id === id);
+          setPost(newPost);
+        } else {
+          console.error("Invalid response format:", result);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   const getData = () => {
     var requestOptions = {
       method: "GET",
@@ -28,7 +71,6 @@ const IndividualPage = () => {
       .then((response) => response.json())
       .then((result) => {
         const newPost = result.find((el) => el.id === id);
-        console.log(newPost);
         setPost(newPost);
       })
       .catch((error) => console.log("error", error));
@@ -37,6 +79,10 @@ const IndividualPage = () => {
   useEffect(() => {
     getData();
   }, [id]);
+
+  const updatePosts = () => {
+    getData();
+  };
 
   return (
     <div className="individual-page">
@@ -90,7 +136,9 @@ const IndividualPage = () => {
               <button className="btn-delete" onClick={() => showPopup()}>
                 Delete
               </button>
-              <button className="mark-as-paid">Mark as Paid</button>
+              <button className="mark-as-paid" onClick={markAsPaid}>
+                Mark as Paid
+              </button>
             </div>
           </div>
           <div className="container">
@@ -158,10 +206,18 @@ const IndividualPage = () => {
         </>
       ) : null}
       {showEditInvoiceForm && (
-        <EditForm post={post} toggleEditInvoice={toggleEditInvoice}></EditForm>
+        <EditForm
+          post={post}
+          toggleEditInvoice={toggleEditInvoice}
+          updatePosts={updatePosts}
+        ></EditForm>
       )}
       {showPopupDelete && (
-        <BackdropDelete post={post} showPopup={showPopup}></BackdropDelete>
+        <BackdropDelete
+          post={post}
+          showPopup={showPopup}
+          deletePost={deletePost}
+        ></BackdropDelete>
       )}
     </div>
   );

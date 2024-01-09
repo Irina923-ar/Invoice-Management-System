@@ -175,7 +175,7 @@
       "paymentTerms": 30,
       "clientName": "Thomas Wayne",
       "clientEmail": "thomas@dc.com",
-      "status": "pending",
+      "status": "paid",
       "senderAddress": {
         "street": "19 Union Terrace",
         "city": "London",
@@ -228,68 +228,6 @@
         }
       ],
       "total": 3102.04
-    },
-    {
-      "id": "ABQjeWf",
-      "createdAt": "",
-      "paymentDue": "aff",
-      "description": "sazdca",
-      "paymentTerms": "2",
-      "clientName": "ad",
-      "clientEmail": "ad",
-      "status": "pending",
-      "senderAddress": {
-        "street": "sfc",
-        "city": "asdcs",
-        "postCode": "sad",
-        "country": "sad"
-      },
-      "clientAddress": {
-        "street": "ad",
-        "city": "da",
-        "postCode": "da",
-        "country": "da"
-      },
-      "items": [
-        {
-          "name": "acd",
-          "quantity": "12",
-          "price": "21",
-          "total": "252.00"
-        }
-      ],
-      "total": "252.00"
-    },
-    {
-      "id": "g_rNeHy",
-      "createdAt": "",
-      "paymentDue": "2021-08-18",
-      "description": "Re-branding",
-      "paymentTerms": "1",
-      "clientName": "Jensen Huang",
-      "clientEmail": "jensenh@mail.com",
-      "status": "pending",
-      "senderAddress": {
-        "street": "19 Union Terrace",
-        "city": "London",
-        "postCode": "E1 3EZ",
-        "country": "United Kingdom"
-      },
-      "clientAddress": {
-        "street": "106 Kendell Street",
-        "city": "Sharrington",
-        "postCode": "NR24 5WQ",
-        "country": "United Kingdom"
-      },
-      "items": [
-        {
-          "name": "Brand Guidelines",
-          "quantity": "1",
-          "price": "1800.9",
-          "total": "1800.90"
-        }
-      ],
-      "total": "1800.90"
     }
   ],
   "comments": [],

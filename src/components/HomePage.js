@@ -3,10 +3,12 @@ import Navbar from "./Navbar";
 import Post from "./Post";
 import Empty from "./Empty";
 import NewInvoiceForm from "./NewInvoiceForm";
+import Filter from "./Filter";
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [showNewInvoiceForm, setShowNewInvoiceForm] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   const getData = () => {
     var requestOptions = {
@@ -32,9 +34,22 @@ const HomePage = () => {
     setShowNewInvoiceForm(!showNewInvoiceForm);
   };
 
+  const toggleFilter = () => {
+    setShowFilter(!showFilter);
+  };
+
+  const getTotalInvoiceCount = () => {
+    return posts.length;
+  };
+
   return (
     <div>
-      <Navbar toggleNewInvoice={toggleNewInvoiceForm}></Navbar>
+      <Navbar
+        toggleNewInvoice={toggleNewInvoiceForm}
+        toggleFilter={toggleFilter}
+        totalInvoiceCount={getTotalInvoiceCount()}
+      ></Navbar>
+      {showFilter && <Filter></Filter>}
       {showNewInvoiceForm && (
         <NewInvoiceForm
           updatePosts={updatePosts}
