@@ -189,7 +189,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   }
                 />
               </div>
-              <div>
+              <div className="input-country-mobile">
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
@@ -248,7 +248,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   }
                 />
               </div>
-              <div>
+              <div className="input-country-mobile">
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
@@ -260,7 +260,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 />
               </div>
             </div>
-            <div className="container-form">
+            <div className="container-form contaner-form-payment">
               <div className="container-form-div">
                 <label className="subtitle">Invoice Date</label>
                 <input
@@ -320,7 +320,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
             <div className="item-list">Item List</div>
             <div className="container-item-change">
               <div className="item-change">
-                <div className="subtitle">Item Name</div>
+                <div className="subtitle item-name">Item Name</div>
                 <div className="subtitle">QTY.</div>
                 <div className="subtitle">Price</div>
                 <div className="subtitle">Total</div>
@@ -329,7 +329,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 {formData.items.map((item, index) => (
                   <div className="item-change" key={index}>
                     <input
-                      className="content"
+                      className="content item-name-company"
                       type="text"
                       value={item.name}
                       onChange={(e) =>
@@ -337,7 +337,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                       }
                     />
                     <input
-                      className="content item-number"
+                      className="content item-number item-quantity"
                       type="number"
                       value={item.quantity}
                       onChange={(e) =>
@@ -345,7 +345,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                       }
                     />
                     <input
-                      className="content"
+                      className="content item-price"
                       type="number"
                       value={item.price}
                       onChange={(e) =>

@@ -9,6 +9,19 @@ const IndividualPage = () => {
   const { id } = useParams();
   const [showEditInvoiceForm, setShowEditInvoiceForm] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 400);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const showPopup = () => {
     setShowPopupDelete(!showPopupDelete);
@@ -158,13 +171,13 @@ const IndividualPage = () => {
               </div>
             </div>
             <div className="container-content">
-              <div>
+              <div className="container-content-payment">
                 <div className="subtitle">Invoice Date</div>
                 <div className="content">{post.createdAt}</div>
                 <div className="subtitle subtitle-2">Payment Due</div>
                 <div className="content">{post.paymentDue}</div>
               </div>
-              <div>
+              <div className="container-content-bill-to">
                 <div className="subtitle">Bill to</div>
                 <div className="content">{post.clientName}</div>
                 <div className="subtitle">{post.clientAddress.street}</div>
@@ -172,7 +185,7 @@ const IndividualPage = () => {
                 <div className="subtitle">{post.clientAddress.postCode}</div>
                 <div className="subtitle">{post.clientAddress.country}</div>
               </div>
-              <div>
+              <div className="container-content-sent-to">
                 <div className="subtitle">Sent to</div>
                 <div className="content">{post.clientEmail}</div>
               </div>
@@ -184,21 +197,32 @@ const IndividualPage = () => {
                 <div className="subtitle">Price</div>
                 <div className="subtitle">Total</div>
               </div>
-              {/* map */}
               <div>
                 {post.items.map((item, index) => (
                   <div className="container-amount-items" key={index}>
                     <div className="content">{item.name}</div>
-                    <div className="item">{item.quantity}</div>
-                    <div className="item">₤ {item.price}</div>
-                    <div className="content">₤ {item.total}</div>
+                    {isMobile ? (
+                      <div className="container-amount-items-mobile">
+                        <div className="item mobile-quantity">
+                          {item.quantity}
+                        </div>
+                        <span className="item">x</span>
+                        <div className="item">₤ {item.price.toFixed(2)}</div>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="item">{item.quantity}</div>
+                        <div className="item">₤ {item.price.toFixed(2)}</div>
+                      </>
+                    )}
+                    <div className="content">₤ {item.total.toFixed(2)}</div>
                   </div>
                 ))}
               </div>
               <div className="container-amount-total">
                 <div className="container-amount-total-title">Amount Due</div>
                 <div className="container-amount-total-price">
-                  ₤ {post.total}
+                  ₤ {post.total.toFixed(2)}
                 </div>
               </div>
             </div>

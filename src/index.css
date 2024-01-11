@@ -78,7 +78,7 @@ body {
 }
 
 .header {
-  display: inline-block;
+  display: block;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -122,6 +122,11 @@ body {
 
 .icon-sun {
   display: none;
+  transform: scale(1.3);
+}
+
+.icon-moon {
+  transform: scale(1.3);
 }
 
 .div-border {
@@ -148,6 +153,7 @@ body {
   align-items: center;
   min-width: 1080px;
   margin-top: 48px;
+  margin-bottom: 105px;
 }
 
 .navbar {
@@ -167,10 +173,16 @@ body {
 }
 
 .total-invoice {
+  display: flex;
+  align-items: center;
   color: var(--clr-secondary-200);
   opacity: 0.6;
   font-weight: var(--fw-bold);
   font-size: var(--fs-100);
+}
+
+.invoices-text {
+  margin-left: 5px;
 }
 
 .filter {
@@ -327,6 +339,10 @@ body {
 .btn-arrow-right {
   border: none;
   background-color: var(--clr-secondary-950);
+}
+
+.link {
+  text-decoration: none;
 }
 
 /* Backdrop */
@@ -781,4 +797,279 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .filter-post-div {
   margin-top: 16px;
+}
+
+@media (max-width: 937px) {
+  .header {
+    display: flex;
+    align-items: center;
+    right: 0px;
+    height: auto;
+    width: 100%;
+    border-radius: 0px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+    min-width: 0px;
+  }
+
+  .jobs-grid {
+    min-width: 0px;
+  }
+
+  .avatar {
+    bottom: 30%;
+    right: 0;
+  }
+
+  .div-border {
+    right: 101px;
+    height: 100%;
+    width: 1px;
+    bottom: 0;
+  }
+
+  .dark-theme {
+    bottom: 30%;
+    right: 105px;
+    bottom: unset;
+  }
+
+  .individual-page {
+    margin-top: 100px;
+    padding-top: 40px;
+    min-width: 0px;
+  }
+
+  .container-status {
+    margin-right: 130px;
+  }
+
+  .form {
+    padding-left: 56px;
+    width: 60%;
+  }
+
+  .buttons-form {
+    width: 60%;
+    padding: 31px 56px 31px 56px;
+  }
+
+  .filter-post {
+    top: 190px;
+    left: 54%;
+  }
+}
+
+@media (max-width: 400px) {
+  .filter {
+    margin-left: 86px;
+  }
+
+  .filter-post {
+    left: 30%;
+  }
+
+  .jobs-grid {
+    margin-top: 32px;
+  }
+
+  .btn-arrow-right {
+    display: none;
+  }
+
+  .posts {
+    display: block;
+    position: relative;
+    padding: 25px 24px 22px 24px;
+  }
+
+  .avatar {
+    margin: 0 24px;
+  }
+
+  .posts .id-post {
+    margin-bottom: 24px;
+  }
+
+  .posts .client-name {
+    position: absolute;
+    justify-content: flex-end;
+    right: 24px;
+    top: 25px;
+    padding: 0;
+  }
+
+  .posts .status {
+    position: absolute;
+    justify-content: flex-end;
+    right: 0px;
+    bottom: 28px;
+  }
+
+  .posts .total {
+    justify-content: flex-start;
+  }
+
+  .posts .payment-due {
+    margin-right: 187px;
+    margin-bottom: 9px;
+  }
+
+  .individual-page {
+    position: relative;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 33px;
+  }
+
+  .individual-page-header {
+    display: flex;
+    align-items: center;
+    padding: 37px 24px 39px 24px;
+  }
+
+  .individual-page-header .status {
+    position: absolute;
+    right: 24px;
+  }
+
+  .individual-page-header .status-title {
+    display: flex;
+    justify-content: flex-start;
+    left: 0;
+    margin-right: 140px;
+  }
+
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 147px;
+  }
+
+  .individual-page .buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--clr-secondary-950);
+  }
+
+  .container-content {
+    display: flex;
+    position: relative;
+    padding-bottom: 90px;
+  }
+
+  .container-header {
+    display: grid;
+  }
+
+  .container-header .id-post {
+    margin-bottom: 30px;
+  }
+
+  .container-content-sent-to {
+    position: absolute;
+    bottom: -10px;
+  }
+
+  .container-content-payment {
+    margin-right: 62px;
+  }
+
+  .container-amount-title {
+    display: none;
+  }
+
+  .container-amount-items {
+    position: relative;
+    padding: 25px 24px 34px 24px;
+  }
+
+  .container-amount-items-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .container-amount-total {
+    padding: 26px 24px 22px 24px;
+  }
+
+  .backdrop-delete {
+    padding: 36px 32px 32px 32px;
+    width: 290px;
+  }
+
+  .individual-page .buttons {
+    bottom: 32px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 59px 24px 32px 24px;
+  }
+
+  .buttons-form {
+    width: 100%;
+    padding: 21px 24px 22px 24px;
+  }
+
+  .container-form {
+    position: relative;
+    padding-bottom: 90px;
+  }
+
+  .input-country-mobile {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .contaner-form-payment {
+    padding-bottom: 0;
+    display: block;
+    width: 100%;
+  }
+
+  .container-form-payment .container-form-div {
+    margin-right: 0;
+  }
+
+  .container-item-change {
+    position: relative;
+    padding-top: 90px;
+    margin-top: 22px;
+  }
+
+  .item-name {
+    position: absolute;
+    top: 0px;
+  }
+
+  .item-change {
+    align-items: center;
+    grid-template-columns: 0.15fr 0.25fr 0.01fr 0.01fr 0.05fr;
+  }
+
+  .item-name-company {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+  }
+
+  .item-quantity {
+    width: 20px;
+  }
+
+  .item-price {
+    width: 60px;
+  }
 }

@@ -206,7 +206,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
                   }
                 />
               </div>
-              <div>
+              <div className="input-country-mobile">
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
@@ -259,7 +259,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
                   }
                 />
               </div>
-              <div>
+              <div className="input-country-mobile">
                 <label className="subtitle">Country</label>
                 <input
                   className="content"
@@ -270,7 +270,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
                 />
               </div>
             </div>
-            <div className="container-form">
+            <div className="container-form contaner-form-payment">
               <div className="container-form-div">
                 <label className="subtitle">Invoice Date</label>
                 <input
@@ -328,7 +328,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
             <div className="item-list">Item List</div>
             <div className="container-item-change">
               <div className="item-change">
-                <div className="subtitle">Item Name</div>
+                <div className="subtitle item-name">Item Name</div>
                 <div className="subtitle">QTY.</div>
                 <div className="subtitle">Price</div>
                 <div className="subtitle">Total</div>
@@ -337,73 +337,27 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
                 {formData.items.map((item, index) => (
                   <div className="item-change" key={index}>
                     <input
-                      className="content"
+                      className="content item-name-company"
                       value={item.name}
                       onChange={(e) =>
                         handleItemChange(index, "name", e.target.value)
                       }
                     />
                     <input
-                      className="content"
+                      className="content item-quantity"
                       value={item.quantity}
                       onChange={(e) =>
                         handleItemChange(index, "quantity", e.target.value)
                       }
                     />
                     <input
-                      className="content"
+                      className="content item-price"
                       value={item.price}
                       onChange={(e) =>
                         handleItemChange(index, "price", e.target.value)
                       }
                     />
                     <div className="item">{item.total}</div>
-                    <button
-                      className="btn-trash"
-                      onClick={() => handleDeleteItem(index)}
-                    >
-                      <svg
-                        width="13"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z"
-                          fill="#888EB0"
-                          fillRule="nonzero"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <div>
-                {formData.items.map((item, index) => (
-                  <div className="item-change" key={index}>
-                    <input
-                      className="content"
-                      value={item.name}
-                      onChange={(e) =>
-                        handleItemChange(index, "name", e.target.value)
-                      }
-                    />
-                    <input
-                      className="content"
-                      value={item.quantity}
-                      onChange={(e) =>
-                        handleItemChange(index, "quantity", e.target.value)
-                      }
-                    />
-                    <input
-                      className="content"
-                      value={item.price}
-                      onChange={(e) =>
-                        handleItemChange(index, "price", e.target.value)
-                      }
-                    />
-                    <div className="item" value={item.price}>
-                      {item.total}
-                    </div>
                     <button
                       className="btn-trash"
                       onClick={() => handleDeleteItem(index)}
