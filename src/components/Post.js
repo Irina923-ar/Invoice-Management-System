@@ -12,7 +12,7 @@ const Post = ({ post }) => {
           </div>
           <div className="payment-due">Due {post.paymentDue}</div>
           <div className="client-name">{post.clientName}</div>
-          <div className="total">₤ {post.total.toFixed(2)}</div>
+          <div className="total">₤ {post.total}</div>
           <div
             className={`status ${
               post.status === "paid"

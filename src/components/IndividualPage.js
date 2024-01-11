@@ -207,22 +207,22 @@ const IndividualPage = () => {
                           {item.quantity}
                         </div>
                         <span className="item">x</span>
-                        <div className="item">₤ {item.price.toFixed(2)}</div>
+                        <div className="item">₤ {item.price}</div>
                       </div>
                     ) : (
                       <>
                         <div className="item">{item.quantity}</div>
-                        <div className="item">₤ {item.price.toFixed(2)}</div>
+                        <div className="item">₤ {item.price}</div>
                       </>
                     )}
-                    <div className="content">₤ {item.total.toFixed(2)}</div>
+                    <div className="content">₤ {item.total}</div>
                   </div>
                 ))}
               </div>
               <div className="container-amount-total">
                 <div className="container-amount-total-title">Amount Due</div>
                 <div className="container-amount-total-price">
-                  ₤ {post.total.toFixed(2)}
+                  ₤ {post.total}
                 </div>
               </div>
             </div>

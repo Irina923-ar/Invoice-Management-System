@@ -181,6 +181,11 @@ body {
   font-size: var(--fs-100);
 }
 
+.total-invoice-count {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
 .invoices-text {
   margin-left: 5px;
 }
