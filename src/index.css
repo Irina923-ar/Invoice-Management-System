@@ -1092,3 +1092,12 @@ input[type="number"]::-webkit-outer-spin-button {
 .checkbox-test.active {
   background-color: purple;
 }
+
+input.content[type="date"] {
+  background: none;
+}
+
+input.content[type="date"]::-webkit-calendar-picker-indicator {
+  background: url(/public/assets/icon-calendar.svg);
+  background-repeat: no-repeat;
+}

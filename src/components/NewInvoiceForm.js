@@ -42,10 +42,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
       const price = parseFloat(updatedItems[index]["price"]) || 0;
       updatedItems[index]["total"] = (quantity * price).toFixed(2);
 
-      const calculatedTotal = updatedItems.reduce(
-        (acc, item) => acc + parseFloat(item.total),
-        0
-      );
+      const calculatedTotal = updatedItems.reduce((acc, item) => acc + parseFloat(item.total), 0);
 
       setFormData({
         ...formData,
@@ -55,10 +52,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
     } else {
       setFormData({ ...formData, items: updatedItems });
 
-      const calculatedTotal = updatedItems.reduce(
-        (acc, item) => acc + parseFloat(item.total),
-        0
-      );
+      const calculatedTotal = updatedItems.reduce((acc, item) => acc + parseFloat(item.total), 0);
 
       setFormData({
         ...formData,
@@ -111,10 +105,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
   const handleAddNewItem = () => {
     setFormData({
       ...formData,
-      items: [
-        ...formData.items,
-        { name: "", quantity: "", price: "", total: "" },
-      ],
+      items: [...formData.items, { name: "", quantity: "", price: "", total: "" }],
     });
   };
 
@@ -162,9 +153,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
             <input
               className="content"
               value={formData.senderAddress.street}
-              onChange={(e) =>
-                handleSenderAddressChange("street", e.target.value)
-              }
+              onChange={(e) => handleSenderAddressChange("street", e.target.value)}
             />
             <div className="container-form">
               <div className="container-form-div">
@@ -173,9 +162,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.senderAddress.city}
-                  onChange={(e) =>
-                    handleSenderAddressChange("city", e.target.value)
-                  }
+                  onChange={(e) => handleSenderAddressChange("city", e.target.value)}
                 />
               </div>
               <div className="container-form-div">
@@ -184,9 +171,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.senderAddress.postCode}
-                  onChange={(e) =>
-                    handleSenderAddressChange("postCode", e.target.value)
-                  }
+                  onChange={(e) => handleSenderAddressChange("postCode", e.target.value)}
                 />
               </div>
               <div className="input-country-mobile">
@@ -195,9 +180,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.senderAddress.country}
-                  onChange={(e) =>
-                    handleSenderAddressChange("country", e.target.value)
-                  }
+                  onChange={(e) => handleSenderAddressChange("country", e.target.value)}
                 />
               </div>
             </div>
@@ -221,9 +204,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               className="content"
               type="text"
               value={formData.clientAddress.street}
-              onChange={(e) =>
-                handleClientAddressChange("street", e.target.value)
-              }
+              onChange={(e) => handleClientAddressChange("street", e.target.value)}
             />
             <div className="container-form">
               <div className="container-form-div">
@@ -232,9 +213,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.clientAddress.city}
-                  onChange={(e) =>
-                    handleClientAddressChange("city", e.target.value)
-                  }
+                  onChange={(e) => handleClientAddressChange("city", e.target.value)}
                 />
               </div>
               <div className="container-form-div">
@@ -243,9 +222,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.clientAddress.postCode}
-                  onChange={(e) =>
-                    handleClientAddressChange("postCode", e.target.value)
-                  }
+                  onChange={(e) => handleClientAddressChange("postCode", e.target.value)}
                 />
               </div>
               <div className="input-country-mobile">
@@ -254,9 +231,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content"
                   type="text"
                   value={formData.clientAddress.country}
-                  onChange={(e) =>
-                    handleClientAddressChange("country", e.target.value)
-                  }
+                  onChange={(e) => handleClientAddressChange("country", e.target.value)}
                 />
               </div>
             </div>
@@ -264,25 +239,11 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               <div className="container-form-div">
                 <label className="subtitle">Invoice Date</label>
                 <input
+                  type="date"
                   className="content input-date"
                   value={formData.paymentDue}
-                  onChange={(e) =>
-                    handleInputChange("paymentDue", e.target.value)
-                  }
+                  onChange={(e) => handleInputChange("paymentDue", e.target.value)}
                 />
-                <svg
-                  className="input-date-svg"
-                  width="16"
-                  height="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 2h-.667V.667A.667.667 0 0012.667 0H12a.667.667 0 00-.667.667V2H4.667V.667A.667.667 0 004 0h-.667a.667.667 0 00-.666.667V2H2C.897 2 0 2.897 0 4v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm.667 12c0 .367-.3.667-.667.667H2A.668.668 0 011.333 14V6.693h13.334V14z"
-                    fill="#7E88C3"
-                    fillRule="nonzero"
-                    opacity=".5"
-                  />
-                </svg>
               </div>
               <div className="container-form-div">
                 <label className="subtitle">Payment Terms</label>
@@ -290,23 +251,10 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   className="content input-date"
                   type="number"
                   value={`${formData.paymentTerms}`}
-                  onChange={(e) =>
-                    handleInputChange("paymentTerms", e.target.value)
-                  }
+                  onChange={(e) => handleInputChange("paymentTerms", e.target.value)}
                 ></input>
-                <svg
-                  className="input-days-svg"
-                  width="11"
-                  height="7"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 1l4.228 4.228L9.456 1"
-                    stroke="#7C5DFA"
-                    strokeWidth="2"
-                    fill="none"
-                    fillRule="evenodd"
-                  />
+                <svg className="input-days-svg" width="11" height="7" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd" />
                 </svg>
               </div>
             </div>
@@ -332,38 +280,25 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                       className="content item-name-company"
                       type="text"
                       value={item.name}
-                      onChange={(e) =>
-                        handleItemChange(index, "name", e.target.value)
-                      }
+                      onChange={(e) => handleItemChange(index, "name", e.target.value)}
                     />
                     <input
                       className="content item-number item-quantity"
                       type="number"
                       value={item.quantity}
-                      onChange={(e) =>
-                        handleItemChange(index, "quantity", e.target.value)
-                      }
+                      onChange={(e) => handleItemChange(index, "quantity", e.target.value)}
                     />
                     <input
                       className="content item-price"
                       type="number"
                       value={item.price}
-                      onChange={(e) =>
-                        handleItemChange(index, "price", e.target.value)
-                      }
+                      onChange={(e) => handleItemChange(index, "price", e.target.value)}
                     />
                     <div className="item" value={item.price}>
                       {item.total}
                     </div>
-                    <button
-                      className="btn-trash"
-                      onClick={() => handleDeleteItem(index)}
-                    >
-                      <svg
-                        width="13"
-                        height="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                    <button className="btn-trash" onClick={() => handleDeleteItem(index)}>
+                      <svg width="13" height="16" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z"
                           fill="#888EB0"
@@ -375,10 +310,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 ))}
               </div>
             </div>
-            <button
-              className="btn-cancel-edit btn-add-item"
-              onClick={handleAddNewItem}
-            >
+            <button className="btn-cancel-edit btn-add-item" onClick={handleAddNewItem}>
               <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z"
@@ -390,10 +322,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
             </button>
 
             <div className="buttons-form">
-              <button
-                className="btn-cancel-edit btn-discard"
-                onClick={() => toggleNewInvoice(false)}
-              >
+              <button className="btn-cancel-edit btn-discard" onClick={() => toggleNewInvoice(false)}>
                 Discard
               </button>
               <button
