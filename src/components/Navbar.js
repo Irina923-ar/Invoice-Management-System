@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 const Navbar = ({ toggleNewInvoice, toggleFilter, totalInvoiceCount }) => {
   const [showFilter, setShowFilter] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 400);
+      setIsMobile(window.innerWidth <= 500);
     };
 
     window.addEventListener("resize", handleResize);

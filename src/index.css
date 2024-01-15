@@ -870,7 +870,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .filter {
     margin-left: 86px;
   }
@@ -894,7 +894,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .avatar {
-    margin: 0 24px;
+    margin: 0 30px 0 24px;
   }
 
   .posts .id-post {
@@ -1013,11 +1013,11 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .individual-page .buttons {
-    bottom: 32px;
+    bottom: 0px;
   }
 
   .form {
-    width: 100%;
+    width: 90%;
     padding: 59px 24px 32px 24px;
   }
 

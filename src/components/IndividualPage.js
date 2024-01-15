@@ -9,11 +9,11 @@ const IndividualPage = () => {
   const { id } = useParams();
   const [showEditInvoiceForm, setShowEditInvoiceForm] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 400);
+      setIsMobile(window.innerWidth <= 500);
     };
 
     window.addEventListener("resize", handleResize);
