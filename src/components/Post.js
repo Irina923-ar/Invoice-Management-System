@@ -15,11 +15,7 @@ const Post = ({ post }) => {
           <div className="total">₤ {post.total}</div>
           <div
             className={`status ${
-              post.status === "paid"
-                ? "status-paid"
-                : post.status === "pending"
-                ? "status-pending"
-                : "status-draft"
+              post.status === "paid" ? "status-paid" : post.status === "pending" ? "status-pending" : "status-draft"
             }`}
           >
             <div
@@ -33,10 +29,7 @@ const Post = ({ post }) => {
             ></div>
             <div className="status-post">{post.status}</div>
           </div>
-          <img
-            className="btn-arrow-right"
-            src="assets/icon-arrow-right.svg"
-          ></img>
+          <img className="btn-arrow-right" src="assets/icon-arrow-right.svg" alt=""></img>
         </div>
       </Link>
     </div>

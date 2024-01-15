@@ -92,13 +92,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    to bottom,
-    #7c5dfa 0%,
-    #7c5dfa 50%,
-    #9277ff 50%,
-    #9277ff 100%
-  );
+  background: linear-gradient(to bottom, #7c5dfa 0%, #7c5dfa 50%, #9277ff 50%, #9277ff 100%);
   border-radius: 0px 20px 20px 0px;
   padding: 32px;
 }
@@ -1077,4 +1071,24 @@ input[type="number"]::-webkit-outer-spin-button {
   .item-price {
     width: 60px;
   }
+}
+
+.checkbox-test {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background-color: gray;
+  border-radius: 4px;
+  /* border: 2px solid white; */
+}
+
+.checkbox-test:hover {
+  border: 2px solid purple;
+}
+
+.checkbox-test.active {
+  background-color: purple;
 }
