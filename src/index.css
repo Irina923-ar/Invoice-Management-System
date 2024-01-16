@@ -92,7 +92,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #7c5dfa 0%, #7c5dfa 50%, #9277ff 50%, #9277ff 100%);
+  background: linear-gradient(
+    to bottom,
+    #7c5dfa 0%,
+    #7c5dfa 50%,
+    #9277ff 50%,
+    #9277ff 100%
+  );
   border-radius: 0px 20px 20px 0px;
   padding: 32px;
 }
@@ -245,6 +251,10 @@ body {
   padding: 30px 0px 27px 32px;
   border-radius: 8px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+}
+
+.posts:hover {
+  border: 1px solid #7c5dfa;
 }
 
 .id-post {
@@ -656,7 +666,8 @@ body {
 }
 
 .container-form input {
-  width: 90%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .input-date-svg {
@@ -681,10 +692,14 @@ body {
 }
 
 .form input {
-  padding: 18px 0px 15px 20px;
+  padding: 18px 20px 15px 20px;
   border-radius: 4px;
-  border: 1px solid var(--05, #dfe3fa);
+  border: 1px solid #dfe3fa;
   background-color: var(--clr-secondary-950);
+}
+
+.form input:focus {
+  outline-color: #9277ff;
 }
 
 .title-form {
@@ -728,6 +743,7 @@ body {
   border-radius: 0px 20px 20px 0px;
   background-color: var(--clr-secondary-700);
   box-shadow: 0px -5px 141px rgba(0, 0, 0, 0.1);
+  z-index: 4;
 }
 
 .buttons-form:hover {
@@ -792,10 +808,60 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 13px;
   font-weight: var(--fw-bold);
   font-size: var(--fs-200);
+  text-transform: capitalize;
 }
 
 .filter-post-div {
+  display: flex;
+  align-items: center;
   margin-top: 16px;
+}
+
+.checkbox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: #dfe3fa;
+}
+
+.checkbox:hover {
+  border: 1px solid #7c5dfa;
+}
+
+.checkbox.active {
+  background-color: #7c5dfa;
+}
+
+input.content[type="date"]::-webkit-calendar-picker-indicator {
+  background: url(/public/assets/icon-calendar.svg);
+  background-repeat: no-repeat;
+}
+
+.options-payment {
+  display: grid;
+  position: absolute;
+  z-index: 3;
+  top: 69%;
+  left: 55%;
+  box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+  border-radius: 8px;
+  background-color: var(--clr-secondary-950);
+}
+
+.options {
+  padding: 16px 156px 16px 24px;
+  border: 1px solid #dfe3fa;
+  font-size: var(--fs-200);
+  color: var(--clr-secondary-400);
+  font-weight: var(--fw-bold);
+}
+
+.options:hover {
+  color: #7c5dfa;
 }
 
 @media (max-width: 937px) {
@@ -844,10 +910,6 @@ input[type="number"]::-webkit-outer-spin-button {
     min-width: 0px;
   }
 
-  .container-status {
-    margin-right: 130px;
-  }
-
   .form {
     padding-left: 56px;
     width: 60%;
@@ -862,9 +924,19 @@ input[type="number"]::-webkit-outer-spin-button {
     top: 190px;
     left: 54%;
   }
+
+  .options-payment {
+    top: 69%;
+    left: 45%;
+  }
 }
 
 @media (max-width: 500px) {
+  .options-payment {
+    top: 157px;
+    left: 0%;
+  }
+
   .filter {
     margin-left: 86px;
   }
@@ -1012,10 +1084,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .form {
     width: 90%;
-    padding: 59px 24px 32px 24px;
+    padding: 121px 24px 32px 24px;
   }
 
   .buttons-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 21px 24px 22px 24px;
   }
@@ -1023,6 +1098,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .container-form {
     position: relative;
     padding-bottom: 90px;
+    gap: 20px;
   }
 
   .input-country-mobile {
@@ -1038,7 +1114,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  .container-form-payment .container-form-div {
+  .container-form .container-form-div {
     margin-right: 0;
   }
 
@@ -1071,33 +1147,8 @@ input[type="number"]::-webkit-outer-spin-button {
   .item-price {
     width: 60px;
   }
-}
 
-.checkbox-test {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  background-color: gray;
-  border-radius: 4px;
-  /* border: 2px solid white; */
-}
-
-.checkbox-test:hover {
-  border: 2px solid purple;
-}
-
-.checkbox-test.active {
-  background-color: purple;
-}
-
-input.content[type="date"] {
-  background: none;
-}
-
-input.content[type="date"]::-webkit-calendar-picker-indicator {
-  background: url(/public/assets/icon-calendar.svg);
-  background-repeat: no-repeat;
+  .input-mobile {
+    width: 50%;
+  }
 }

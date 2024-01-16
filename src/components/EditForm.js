@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import OptionsPayment from "./OptionsPayment";
 
 function EditForm({ post, toggleEditInvoice, updatePosts }) {
   const [formData, setFormData] = useState({
@@ -167,6 +168,22 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
     }));
   };
 
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleOptionChange = (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentTerms: value,
+    }));
+    setSelectedOption(value);
+  };
+
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleSvgClick = () => {
+    setShowOptions(!showOptions);
+  };
+
   return (
     <div className="edit-form">
       {post ? (
@@ -189,7 +206,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               <div className="container-form-div">
                 <label className="subtitle">City</label>
                 <input
-                  className="content"
+                  className="content input-mobile"
                   value={formData.senderAddress.city}
                   onChange={(e) =>
                     handleSenderAddressChange("city", e.target.value)
@@ -199,7 +216,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               <div className="container-form-div">
                 <label className="subtitle">Post Code</label>
                 <input
-                  className="content"
+                  className="content input-mobile"
                   value={formData.senderAddress.postCode}
                   onChange={(e) =>
                     handleSenderAddressChange("postCode", e.target.value)
@@ -242,7 +259,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               <div className="container-form-div">
                 <label className="subtitle">City</label>
                 <input
-                  className="content"
+                  className="content input-mobile"
                   value={formData.clientAddress.city}
                   onChange={(e) =>
                     handleClientAddressChange("city", e.target.value)
@@ -252,7 +269,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               <div className="container-form-div">
                 <label className="subtitle">Post Code</label>
                 <input
-                  className="content"
+                  className="content input-mobile"
                   value={formData.clientAddress.postCode}
                   onChange={(e) =>
                     handleClientAddressChange("postCode", e.target.value)
@@ -274,40 +291,30 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               <div className="container-form-div">
                 <label className="subtitle">Invoice Date</label>
                 <input
+                  type="date"
                   className="content input-date"
                   value={formData.paymentDue}
                   onChange={(e) =>
                     handleInputChange("paymentDue", e.target.value)
                   }
                 />
-                <svg
-                  className="input-date-svg"
-                  width="16"
-                  height="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 2h-.667V.667A.667.667 0 0012.667 0H12a.667.667 0 00-.667.667V2H4.667V.667A.667.667 0 004 0h-.667a.667.667 0 00-.666.667V2H2C.897 2 0 2.897 0 4v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm.667 12c0 .367-.3.667-.667.667H2A.668.668 0 011.333 14V6.693h13.334V14z"
-                    fill="#7E88C3"
-                    fillRule="nonzero"
-                    opacity=".5"
-                  />
-                </svg>
               </div>
               <div className="container-form-div-2">
                 <label className="subtitle">Payment Terms</label>
                 <input
                   className="content input-date"
-                  value={`Net ${formData.paymentTerms} Days`}
-                  onChange={(e) =>
-                    handleInputChange("paymentTerms", e.target.value)
-                  }
-                ></input>
+                  value={`${formData.paymentTerms}`}
+                  onChange={(e) => {
+                    handleInputChange("paymentTerms", e.target.value);
+                    handleOptionChange(e.target.value);
+                  }}
+                />
                 <svg
                   className="input-days-svg"
                   width="11"
                   height="7"
                   xmlns="http://www.w3.org/2000/svg"
+                  onClick={handleSvgClick}
                 >
                   <path
                     d="M1 1l4.228 4.228L9.456 1"
@@ -318,6 +325,9 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
                   />
                 </svg>
               </div>
+              {showOptions && (
+                <OptionsPayment handleOptionChange={handleOptionChange} />
+              )}
             </div>
             <label className="subtitle mt">Project Description</label>
             <input
