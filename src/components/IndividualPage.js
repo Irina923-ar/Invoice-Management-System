@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import EditForm from "./EditForm";
 import BackdropDelete from "./BackdropDelete";
+import invoices from "./Invoices";
 
 const IndividualPage = () => {
   const [post, setPost] = useState();
@@ -32,61 +33,27 @@ const IndividualPage = () => {
   };
 
   const markAsPaid = () => {
-    const requestOptions = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        status: "paid",
-      }),
-    };
-
-    fetch(`http://localhost:3030/posts/${id}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (Array.isArray(result)) {
-          const newPost = result.find((el) => el.id === id);
-          setPost(newPost);
-        } else {
-          console.error("Invalid response format:", result);
-        }
-      })
-      .catch((error) => console.log("error", error));
+    const updatedInvoices = invoices.map((invoice) => {
+      if (invoice.id === id) {
+        return { ...invoice, status: "paid" };
+      }
+      return invoice;
+    });
+    setPost(updatedInvoices.find((invoice) => invoice.id === id));
   };
 
   const deletePost = (postId) => {
-    var requestOptions = {
-      method: "DELETE",
-      redirect: "follow",
-    };
+    const updatedInvoices = invoices.filter((invoice) => invoice.id !== postId);
+    setPost(updatedInvoices);
 
-    fetch(`http://localhost:3030/posts/${postId}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (Array.isArray(result)) {
-          const newPost = result.find((el) => el.id === id);
-          setPost(newPost);
-        } else {
-          console.error("Invalid response format:", result);
-        }
-      })
-      .catch((error) => console.log("error", error));
+    if (post && post.id === postId) {
+      setPost(null);
+    }
   };
 
   const getData = () => {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:3030/posts/", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        const newPost = result.find((el) => el.id === id);
-        setPost(newPost);
-      })
-      .catch((error) => console.log("error", error));
+    const foundInvoice = invoices.find((invoice) => invoice.id === id);
+    setPost(foundInvoice);
   };
 
   useEffect(() => {

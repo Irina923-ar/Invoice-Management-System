@@ -4,30 +4,19 @@ import Post from "./Post";
 import Empty from "./Empty";
 import NewInvoiceForm from "./NewInvoiceForm";
 import Filter from "./Filter";
+import invoices from "./Invoices";
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [showNewInvoiceForm, setShowNewInvoiceForm] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
-  const getData = () => {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:3030/posts", requestOptions)
-      .then((response) => response.json())
-      .then((result) => setPosts(result))
-      .catch((error) => console.log("error", error));
-  };
-
   useEffect(() => {
-    getData();
+    setPosts(invoices);
   }, []);
 
   const updatePosts = () => {
-    getData();
+    setPosts(invoices);
   };
 
   const toggleNewInvoiceForm = () => {
