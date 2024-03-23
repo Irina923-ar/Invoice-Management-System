@@ -277,7 +277,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                 />
               </div>
             </div>
-            <div className="container-form contaner-form-payment">
+            <div className="container-form container-form-payment">
               <div className="container-form-div">
                 <label className="subtitle">Invoice Date</label>
                 <input
@@ -397,7 +397,6 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               </svg>
               Add New Item
             </button>
-
             <div className="buttons-form">
               <button
                 className="btn-cancel-edit btn-discard"
