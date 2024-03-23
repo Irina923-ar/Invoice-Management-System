@@ -209,6 +209,7 @@ body {
 .btn-arrow-down {
   border: none;
   background-color: var(--clr-secondary-700);
+  cursor: pointer;
 }
 
 .add-invoice {
@@ -232,6 +233,7 @@ body {
   margin: 8px;
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 
 .add-title {
@@ -350,6 +352,7 @@ body {
 .btn-arrow-right {
   border: none;
   background-color: var(--clr-secondary-950);
+  cursor: pointer;
 }
 
 .link {
@@ -418,6 +421,7 @@ body {
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .btn-cancel-edit:hover {
@@ -427,6 +431,7 @@ body {
 .btn-discard {
   color: #7e88c3;
   background-color: #f9fafe;
+  cursor: pointer;
 }
 
 .btn-delete {
@@ -437,6 +442,7 @@ body {
   border: none;
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
+  cursor: pointer;
 }
 
 .btn-delete:hover {
@@ -467,6 +473,7 @@ body {
 
 .btn-arrow-left {
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .title-back {
@@ -501,6 +508,7 @@ body {
   margin: 8px;
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
+  cursor: pointer;
 }
 
 .mark-as-paid:hover {
@@ -731,6 +739,7 @@ body {
 .btn-add-item {
   margin-top: 18px;
   margin-bottom: 39px;
+  cursor: pointer;
 }
 
 .buttons-form {
@@ -755,6 +764,7 @@ body {
 .btn-trash {
   border: none;
   background-color: var(--clr-secondary-700);
+  cursor: pointer;
 }
 
 .mt {
@@ -781,6 +791,7 @@ body {
   margin: 8px;
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
+  cursor: pointer;
 }
 
 .save-draft-btn:hover {
@@ -817,6 +828,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   margin-top: 16px;
+  cursor: pointer;
 }
 
 .checkbox {
@@ -1028,7 +1040,8 @@ input.content[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: var(--clr-secondary-950);
+    background-color: none;
+    margin: 10px 0;
   }
 
   .container-content {
