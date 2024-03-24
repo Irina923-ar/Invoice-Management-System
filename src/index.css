@@ -734,19 +734,35 @@ body {
 }
 
 .item-change {
-  display: grid;
-  grid-template-columns: 0.47fr 0.05fr 0.2fr 0.09fr 0.03fr;
-  justify-content: space-between;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 15px;
+  gap: 105px;
+}
+
+.container-item-change {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container-item-change input {
-  display: flex;
-  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 18px 10px 15px 10px;
+  width: 50px;
+}
+
+.item-change-container .item-name-company {
+  min-width: 130px;
+}
+
+.item-change-container {
+  display: grid;
+  justify-content: flex-start;
   align-items: center;
-  min-width: 1ch;
-  padding: 18px 20px 15px 20px;
+  grid-template-columns: 0.75fr 0.65fr 0.6fr 0.6fr 0.2fr;
 }
 
 .btn-add-item {

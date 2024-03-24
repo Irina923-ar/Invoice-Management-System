@@ -16,9 +16,9 @@ const Filter = ({ onSearch }) => {
     }));
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     onSearch(filterOptions);
-  }, [filterOptions, onSearch]);
+  }, [onSearch]); */
 
   return (
     <div className="filter-post">
