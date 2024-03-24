@@ -103,9 +103,9 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
   };
 
   return (
-    <div className="edit-form">
+    <div className="edit-form-backdrop">
       {post ? (
-        <>
+        <div className="edit-form-container">
           <div className="form">
             <div className="id-post">
               Edit <span className="hashtag">#</span>
@@ -337,7 +337,7 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               Save Changes
             </button>
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );

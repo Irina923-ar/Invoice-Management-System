@@ -10,9 +10,11 @@ const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [showNewInvoiceForm, setShowNewInvoiceForm] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
     setPosts(invoices);
+    setFilteredPosts(invoices);
   }, []);
 
   const updatePosts = () => {
@@ -27,8 +29,15 @@ const HomePage = () => {
     setShowFilter(!showFilter);
   };
 
+  const handleFilterChange = (filteredPosts) => {
+    const filtered = posts.filter((post) => {
+      return filteredPosts[post.status];
+    });
+    setFilteredPosts(filtered);
+  };
+
   const getTotalInvoiceCount = () => {
-    return posts.length;
+    return filteredPosts.length;
   };
 
   return (
@@ -38,7 +47,7 @@ const HomePage = () => {
         toggleFilter={toggleFilter}
         totalInvoiceCount={getTotalInvoiceCount()}
       ></Navbar>
-      {showFilter && <Filter></Filter>}
+      {showFilter && <Filter onSearch={handleFilterChange}></Filter>}
       {showNewInvoiceForm && (
         <NewInvoiceForm
           updatePosts={updatePosts}
@@ -47,7 +56,7 @@ const HomePage = () => {
       )}
       <Empty></Empty>
       <div className="jobs-grid">
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <Post key={post.id} post={post}></Post>
         ))}
       </div>

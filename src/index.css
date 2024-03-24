@@ -204,6 +204,7 @@ body {
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .btn-arrow-down {
@@ -241,6 +242,7 @@ body {
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .posts {
@@ -469,17 +471,20 @@ body {
 .arrow-go-back {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .btn-arrow-left {
-  margin-right: 20px;
+  display: flex;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .title-back {
   color: var(--clr-secondary-400);
   font-size: var(--fs-200);
   font-weight: var(--fw-bold);
+  margin-left: 20px;
 }
 
 /* Individual Page */
@@ -493,6 +498,7 @@ body {
   padding: 20px 32px;
   border-radius: 8px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+  gap: 200px;
 }
 
 .mark-as-paid {
@@ -629,20 +635,24 @@ body {
 
 /* Edit Form */
 
-.edit-form {
-  display: flex;
+.edit-form-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   max-height: 100vh;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
   overflow: hidden;
+}
+
+.edit-form-container {
+  display: flex;
+  overflow: hidden;
   flex-direction: column;
+  max-height: 100vh;
+  height: 100vh;
 }
 
 .form {
@@ -652,10 +662,9 @@ body {
   top: 0%;
   left: 0%;
   width: 40%;
-  height: calc(100vh - 62px);
   background-color: var(--clr-secondary-700);
   border-radius: 8px;
-  padding: 59px 56px 32px 159px;
+  padding: 30px 60px 30px 160px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
 }
 
@@ -752,7 +761,7 @@ body {
   justify-content: flex-end;
   width: 40%;
   padding: 30px 60px 30px 160px;
-  border-radius: 0px 20px 0px 0px;
+  border-bottom-right-radius: 20px;
   background-color: var(--clr-secondary-700);
   box-shadow: 0px -5px 141px rgba(0, 0, 0, 0.1);
   z-index: 4;

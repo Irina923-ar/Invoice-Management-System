@@ -40,9 +40,13 @@ const Navbar = ({ toggleNewInvoice, toggleFilter, totalInvoiceCount }) => {
       </div>
       <div className="filter">
         {isMobile ? (
-          <div className="filter-title">Filter</div>
+          <div className="filter-title" onClick={handleFilterToggle}>
+            Filter
+          </div>
         ) : (
-          <div className="filter-title">Filter by status</div>
+          <div className="filter-title" onClick={handleFilterToggle}>
+            Filter by status
+          </div>
         )}
         <button className="btn-arrow-down" onClick={handleFilterToggle}>
           <img src="assets/icon-arrow-down.svg" alt=""></img>
@@ -53,9 +57,13 @@ const Navbar = ({ toggleNewInvoice, toggleFilter, totalInvoiceCount }) => {
           <img src="assets/icon-plus.svg" alt=""></img>
         </button>
         {isMobile ? (
-          <div className="add-title">New</div>
+          <div className="add-title" onClick={() => toggleNewInvoice()}>
+            New
+          </div>
         ) : (
-          <div className="add-title">New Invoice</div>
+          <div className="add-title" onClick={() => toggleNewInvoice()}>
+            New Invoice
+          </div>
         )}
       </div>
     </div>

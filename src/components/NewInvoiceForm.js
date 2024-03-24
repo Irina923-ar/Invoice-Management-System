@@ -169,9 +169,9 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
   };
 
   return (
-    <div className="edit-form">
+    <div className="edit-form-backdrop">
       {formData ? (
-        <>
+        <div className="edit-form-container">
           <div className="form">
             <div className="id-post">New Invoice</div>
             <div className="title-form">Bill Form</div>
@@ -424,7 +424,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               Save & Send
             </button>
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );

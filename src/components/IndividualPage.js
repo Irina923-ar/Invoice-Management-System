@@ -77,8 +77,8 @@ const IndividualPage = () => {
               fillRule="evenodd"
             />
           </svg>
+          <div className="title-back">Go Back</div>
         </Link>
-        <div className="title-back">Go Back</div>
       </div>
       {post ? (
         <>
@@ -116,7 +116,11 @@ const IndividualPage = () => {
               <button className="btn-delete" onClick={() => showPopup()}>
                 Delete
               </button>
-              <button className="mark-as-paid" onClick={markAsPaid}>
+              <button
+                className="mark-as-paid"
+                onClick={markAsPaid}
+                style={{ display: post.status === "paid" ? "none" : "block" }}
+              >
                 Mark as Paid
               </button>
             </div>
