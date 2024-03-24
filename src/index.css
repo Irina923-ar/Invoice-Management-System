@@ -630,22 +630,24 @@ body {
 /* Edit Form */
 
 .edit-form {
-  display: block;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
+  overflow: hidden;
+  flex-direction: column;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  position: absolute;
   overflow: auto;
   top: 0%;
   left: 0%;
@@ -748,11 +750,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
   width: 40%;
-  padding: 31px 56px 31px 159px;
+  padding: 30px 60px 30px 160px;
   border-radius: 0px 20px 0px 0px;
   background-color: var(--clr-secondary-700);
   box-shadow: 0px -5px 141px rgba(0, 0, 0, 0.1);

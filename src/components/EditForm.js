@@ -319,23 +319,23 @@ function EditForm({ post, toggleEditInvoice, updatePosts }) {
               </svg>
               Add New Item
             </button>
-            <div className="buttons-form">
-              <button
-                className="btn-cancel-edit"
-                onClick={() => toggleEditInvoice(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="mark-as-paid"
-                onClick={() => {
-                  toggleEditInvoice(false);
-                  handleSaveAndSend();
-                }}
-              >
-                Save Changes
-              </button>
-            </div>
+          </div>
+          <div className="buttons-form">
+            <button
+              className="btn-cancel-edit"
+              onClick={() => toggleEditInvoice(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="mark-as-paid"
+              onClick={() => {
+                toggleEditInvoice(false);
+                handleSaveAndSend();
+              }}
+            >
+              Save Changes
+            </button>
           </div>
         </>
       ) : null}

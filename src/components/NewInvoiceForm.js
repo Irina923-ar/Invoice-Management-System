@@ -397,32 +397,32 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
               </svg>
               Add New Item
             </button>
-            <div className="buttons-form">
-              <button
-                className="btn-cancel-edit btn-discard"
-                onClick={() => toggleNewInvoice(false)}
-              >
-                Discard
-              </button>
-              <button
-                className="save-draft-btn"
-                onClick={() => {
-                  toggleNewInvoice(false);
-                  handleSaveAsDraft();
-                }}
-              >
-                Save as Draft
-              </button>
-              <button
-                className="mark-as-paid"
-                onClick={() => {
-                  toggleNewInvoice(false);
-                  handleSaveAndSend();
-                }}
-              >
-                Save & Send
-              </button>
-            </div>
+          </div>
+          <div className="buttons-form">
+            <button
+              className="btn-cancel-edit btn-discard"
+              onClick={() => toggleNewInvoice(false)}
+            >
+              Discard
+            </button>
+            <button
+              className="save-draft-btn"
+              onClick={() => {
+                toggleNewInvoice(false);
+                handleSaveAsDraft();
+              }}
+            >
+              Save as Draft
+            </button>
+            <button
+              className="mark-as-paid"
+              onClick={() => {
+                toggleNewInvoice(false);
+                handleSaveAndSend();
+              }}
+            >
+              Save & Send
+            </button>
           </div>
         </>
       ) : null}
