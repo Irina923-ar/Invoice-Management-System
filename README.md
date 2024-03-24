@@ -1,35 +1,58 @@
-# Invoices Project
+# Invoice Management System
 
-This is a simple invoices project built using HTML, CSS, and JavaScript.
-![image](https://github.com/Irina923-ar/Invoice-project/assets/112747712/1c8ab5dd-b54f-49db-bf01-0c7ec4895469)
+## Description
+
+The Invoice Management System is a web-based application designed to simplify the process of managing invoices. Built with React.js, CSS, HTML, and JavaScript, it offers a user-friendly interface for creating, editing, and organizing invoices. Whether you're a small business owner, or just looking for an efficient way to handle billing, this system is tailored to meet your needs.
+
+![INSERT SCREENSHOT HERE]
+
+## Live Demo
+
+Experience the Invoice Management System in action: (https://invoice-project-seven.vercel.app/)
 
 
 ## Features
 
-- Addition
-- Subtraction
-- Multiplication
-- Division
+- **Dark Mode**: A sleek dark theme that's easy on the eyes, perfect for working at any hour.
+![INSERT SCREENSHOT HERE]
+- **Edit/New Invoice**: Easily create new invoices or edit existing ones with intuitive 
+![INSERT SCREENSHOT HERE]
+- **Filtering**: Robust filtering options to quickly find invoices based on status, client, date, and more.
+- **Mobile Responsive**: Fully responsive design ensures a seamless experience on any device, from desktop to mobile.
+![INSERT SCREENSHOT HERE]
+- **View with Controls**: Each invoice comes with options to delete or mark as paid, streamlining your workflow.
+![INSERT SCREENSHOT HERE]
 
-## Deployment
 
-This project is deployed on Vercel and can be accessed at (https://invoice-project-seven.vercel.app/).
+## Technologies Used
 
-## Author
+<img src="https://reactjs.org/logo-og.png" width="50" alt="React.js"> **React.js**
 
-- Galan Irina
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" width="50" alt="CSS3"> **CSS3**
 
-## Setup
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" width="50" alt="HTML5"> **HTML5**
 
-Clone this repo to your desktop and run npm install to install all the dependencies.
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="50" alt="JavaScript"> **JavaScript**
+## Installation and Setup
 
-You might want to look into config.json to make change the port you want to use and set up a SSL certificate.
+1. Clone the repository to your local machine:
+    ```
+    git clone https://github.com/yourusername/invoice-management-system.git
+    ```
+2. Navigate to the project directory:
+    ```
+    cd invoice-management-system
+    ```
+3. Install the necessary dependencies:
+    ```
+    npm install
+    ```
+4. To start the application, run:
+    ```
+    npm start
+    ```
+    This will launch the Invoice Management System on `localhost:3000`.
 
 ## Usage
 
-After you clone this repo to your desktop, go to its root directory and run npm install to install its dependencies.
-
-Once the dependencies are installed, you can run npm start to start the application. You will then be able to access it at localhost:3000
-
-To give yourself administrator permissions on the chat, you will have to type /role [your-name] in the app console.
-
+After launching the application, you're presented with a dashboard of your invoices. Use the "New Invoice" button to create a new invoice, or select an existing invoice to edit. The filtering and search functionality can be used to navigate through your invoices efficiently. Toggle between light and dark mode using the theme switcher provided in the settings.
