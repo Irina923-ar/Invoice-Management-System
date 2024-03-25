@@ -37,7 +37,7 @@ Experience the Invoice Management System in action: (https://invoice-project-sev
 
 1. Clone the repository to your local machine:
     ```
-    git clone https://github.com/yourusername/invoice-management-system.git
+    git clone https://github.com/Irina923-ar/Invoice-Management-System.git
     ```
 2. Navigate to the project directory:
     ```
