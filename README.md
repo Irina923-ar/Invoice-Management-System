@@ -4,7 +4,8 @@
 
 The Invoice Management System is a web-based application designed to simplify the process of managing invoices. Built with React.js, CSS, HTML, and JavaScript, it offers a user-friendly interface for creating, editing, and organizing invoices. Whether you're a small business owner, or just looking for an efficient way to handle billing, this system is tailored to meet your needs.
 
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/9ab5c03a-7843-4cc9-8fff-fcba51f12526)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/490b85aa-a7d0-4342-85db-a045c6d5c8d3)
+
 
 
 ## Live Demo
