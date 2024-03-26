@@ -16,23 +16,22 @@ Experience the Invoice Management System in action: (https://invoice-project-sev
 ## Features
 
 - **Dark Mode**: A sleek dark theme that's easy on the eyes, perfect for working at any hour.
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/02db1444-2d1f-4de4-8c98-4ad91be8a1e3)
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/6557e68d-8051-4940-8b3a-6e7358c41dd6)
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/28a25466-23ae-41fd-bff1-765097c47737)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/d6001677-2c46-4603-9dbb-96515f019dec)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/8f943e59-b3d0-47ad-97f2-fadb838811ec)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/cd654e96-b3a9-430a-b38c-0bace077b16c)
 
 - **Edit/New Invoice**: Easily create new invoices or edit existing ones with intuitive 
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/d3d3348e-6ffb-495e-b90a-69447cd2318e)
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/a9e52477-d17c-4376-8969-050fbf690c3f)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/941dd25c-14f8-41ae-87e0-21f197a1e202)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/bbf4a9a4-955d-4393-b547-a7bf1c0f12c7)
 
 - **Filtering**: Robust filtering options to quickly find invoices based on status, client, date, and more.
   
 - **Mobile Responsive**: Fully responsive design ensures a seamless experience on any device, from desktop to mobile.
-!![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/175bf81b-ebe4-48e3-9fdc-528d405453e6)
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/f22b4e41-fb7c-4a44-9b88-1ba37317e39e)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/0bb3c0ef-edaa-4034-b10b-1b83492acf16)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/86376430-e76b-4b12-b093-cbb63034e23d)
 
 - **View with Controls**: Each invoice comes with options to delete or mark as paid, streamlining your workflow.
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/06a6ddd5-8ab5-4ad2-b70b-0b5458ddd144)
-
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/d4a9ee1b-3335-418c-bd1e-7517b42526d7)
 
 
 ## Technologies Used
