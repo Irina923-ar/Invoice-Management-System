@@ -27,8 +27,7 @@ Experience the Invoice Management System in action: (https://invoice-project-sev
   
 - **Mobile Responsive**: Fully responsive design ensures a seamless experience on any device, from desktop to mobile.
 !![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/175bf81b-ebe4-48e3-9fdc-528d405453e6)
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/475a684e-56c7-48bf-9a87-b81b039081fa)
-
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/f22b4e41-fb7c-4a44-9b88-1ba37317e39e)
 
 - **View with Controls**: Each invoice comes with options to delete or mark as paid, streamlining your workflow.
 ![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/06a6ddd5-8ab5-4ad2-b70b-0b5458ddd144)
