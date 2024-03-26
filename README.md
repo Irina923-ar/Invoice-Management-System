@@ -20,7 +20,8 @@ Experience the Invoice Management System in action: (https://invoice-project-sev
 ![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/28a25466-23ae-41fd-bff1-765097c47737)
 
 - **Edit/New Invoice**: Easily create new invoices or edit existing ones with intuitive 
-![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/097550b7-1b8c-4bcf-b522-1ab28aa0033e)
+![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/d3d3348e-6ffb-495e-b90a-69447cd2318e)
+
 ![image](https://github.com/Irina923-ar/Invoice-Management-System/assets/112747712/a9e52477-d17c-4376-8969-050fbf690c3f)
 
 - **Filtering**: Robust filtering options to quickly find invoices based on status, client, date, and more.
