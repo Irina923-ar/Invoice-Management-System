@@ -733,36 +733,21 @@ body {
   margin-bottom: 24px;
 }
 
-.item-change {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
-  gap: 105px;
-}
-
 .container-item-change {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  justify-content: space-between;
-  align-items: center;
+  text-align: left;
 }
 
-.container-item-change input {
-  box-sizing: border-box;
-  padding: 18px 10px 15px 10px;
-  width: 50px;
+.item-quantity {
+  max-width: 60px;
 }
 
-.item-change-container .item-name-company {
-  min-width: 130px;
+.item-price {
+  max-width: 60px;
 }
 
-.item-change-container {
-  display: grid;
-  justify-content: flex-start;
-  align-items: center;
-  grid-template-columns: 0.75fr 0.65fr 0.6fr 0.6fr 0.2fr;
+.item-total {
+  padding: 18px 20px 15px 20px;
+  max-width: 60px;
 }
 
 .btn-add-item {
@@ -788,6 +773,7 @@ body {
 }
 
 .btn-trash {
+  max-width: 60px;
   border: none;
   background-color: var(--clr-secondary-700);
   cursor: pointer;

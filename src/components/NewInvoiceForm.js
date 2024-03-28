@@ -334,7 +334,7 @@ function NewInvoiceForm({ updatePosts, toggleNewInvoice }) {
                   <th className="subtitle">QTY.</th>
                   <th className="subtitle">Price</th>
                   <th className="subtitle">Total</th>
-                  <th></th>{" "}
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
